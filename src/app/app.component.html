@@ -105,7 +105,7 @@
           <form #editForm="ngForm">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name"
+              <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="nameId"
                      aria-describedby="emailHelp" placeholder="Name">
             </div>
             <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id"
@@ -114,7 +114,7 @@
                    id="userCode" placeholder="Email">
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email"
+              <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="emailId"
                      placeholder="Email">
             </div>
             <div class="form-group">
@@ -124,12 +124,12 @@
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone"
+              <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phoneId"
                      name="phone" placeholder="Phone">
             </div>
             <div class="form-group">
               <label for="phone">Image URL</label>
-              <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl"
+              <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrlId"
                      placeholder="Image URL">
             </div>
             <div class="modal-footer">

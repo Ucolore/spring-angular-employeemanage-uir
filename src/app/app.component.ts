@@ -39,10 +39,12 @@ export class AppComponent implements OnInit {
     button.setAttribute('data-toggle', 'modal');
     if (mode === 'add') {
       button.setAttribute('data-toggle', '#addEmployeeModal');
-    } else if (mode === 'edit') {
+    }
+    if (mode === 'edit') {
       this.editEmployee = employee;
       button.setAttribute('data-toggle', '#updateEmployeeModal');
-    } else if (mode === 'delete') {
+    }
+    if (mode === 'delete') {
       this.deleteEmployee = employee;
       button.setAttribute('data-toggle', '#deleteEmployeeModal');
     }
@@ -80,15 +82,15 @@ export class AppComponent implements OnInit {
 
   public onDeleteEmployee(employeeId: number): void {
     if (employeeId !== null)
-    this.employeeService.deleteEmployee(employeeId).subscribe(
-      (response: void) => {
-        console.log(response);
-        this.getEmployees();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+      this.employeeService.deleteEmployee(employeeId).subscribe(
+        (response: void) => {
+          console.log(response);
+          this.getEmployees();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
   }
 
   public searchEmployees(key: string): void {
@@ -102,7 +104,7 @@ export class AppComponent implements OnInit {
       }
     }
     this.employees = results;
-    if (results.length === 0 || !key){
+    if (results.length === 0 || !key) {
       this.getEmployees();
     }
   }
