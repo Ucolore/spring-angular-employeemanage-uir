@@ -22,4 +22,22 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployees();
   }
+
+  public onOpenModal (employee: Employee, mode: string) : void{
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle','modal');
+    if (mode === 'add'){
+      button.setAttribute('data-toggle','#addEmployeeModal');
+    } else if (mode === 'edit'){
+      button.setAttribute('data-toggle','#updateEmployeeModal');
+    }else if (mode === 'delete') {
+      button.setAttribute('data-toggle','#deleteEmployeeModal');
+    }
+    // @ts-ignore
+    container.appendChild(button);
+    button.click();
+  }
 }
