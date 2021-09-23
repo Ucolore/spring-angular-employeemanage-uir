@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" style="color:white;">Employee Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-          aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarColor02">
@@ -35,10 +34,8 @@
         </ul>
         <div class="card-body">
           <div class="float-right btn-group btn-group-sm">
-            <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top"
-               data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-            <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top"
-               data-original-title="Delete"><i class="fa fa-times"></i></a>
+            <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+            <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
           </div>
         </div>
       </div>
@@ -46,8 +43,7 @@
   </div>
 
   <!-- Add Employee Modal -->
-  <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel"
-       aria-hidden="true">
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -68,8 +64,7 @@
             </div>
             <div class="form-group">
               <label for="phone">Job title</label>
-              <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title"
-                     required>
+              <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
@@ -77,12 +72,11 @@
             </div>
             <div class="form-group">
               <label for="phone">Image URL</label>
-              <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL"
-                     required>
+              <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
             </div>
             <div class="modal-footer">
               <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
             </div>
           </form>
         </div>
@@ -91,8 +85,7 @@
   </div>
 
   <!-- Edit Modal -->
-  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel"
-       aria-hidden="true">
+  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -105,38 +98,29 @@
           <form #editForm="ngForm">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="nameId"
-                     aria-describedby="emailHelp" placeholder="Name">
+              <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="namee" aria-describedby="emailHelp" placeholder="Name">
             </div>
-            <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id"
-                   placeholder="Email">
-            <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control"
-                   id="userCode" placeholder="Email">
+            <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+            <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="emailId"
-                     placeholder="Email">
+              <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="emaill" placeholder="Email">
             </div>
             <div class="form-group">
               <label for="phone">Job title</label>
-              <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle"
-                     placeholder="Job title">
+              <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phoneId"
-                     placeholder="Phone">
+              <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phonee" placeholder="Phone">
             </div>
             <div class="form-group">
               <label for="phone">Image URL</label>
-              <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrlId"
-                     placeholder="Image URL">
+              <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrll" placeholder="Image URL">
             </div>
             <div class="modal-footer">
               <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-              <button (click)="onUpdateEmployee(editForm.value)" data-dismiss="modal" class="btn btn-primary">Save
-                changes
-              </button>
+              <button (click)="onUpdateEmployee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
             </div>
           </form>
         </div>
@@ -145,8 +129,7 @@
   </div>
 
   <!-- Delete Modal -->
-  <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
-       aria-hidden="true">
+  <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -159,8 +142,7 @@
           <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button (click)="onDeleteEmployee(deleteEmployee!.id)" class="btn btn-danger" data-dismiss="modal">Yes
-            </button>
+            <button (click)="onDeleteEmployee(deleteEmployee!.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
           </div>
         </div>
       </div>
