@@ -12,6 +12,7 @@ import {NgForm} from "@angular/forms";
 export class AppComponent implements OnInit {
   public employees: Employee[] | undefined;
   public editEmployee: Employee | null | undefined;
+  public deleteEmployee: Employee | null | undefined;
 
   constructor(private employeeService: EmployeeService) {
   }
@@ -42,6 +43,7 @@ export class AppComponent implements OnInit {
       this.editEmployee = employee;
       button.setAttribute('data-toggle', '#updateEmployeeModal');
     } else if (mode === 'delete') {
+      this.deleteEmployee = employee;
       button.setAttribute('data-toggle', '#deleteEmployeeModal');
     }
     // @ts-ignore
@@ -56,6 +58,7 @@ export class AppComponent implements OnInit {
       (response: Employee) => {
         console.log(response);
         this.getEmployees();
+        addForm.reset();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -73,5 +76,34 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public onDeleteEmployee(employeeId: number): void {
+    if (employeeId !== null)
+    this.employeeService.deleteEmployee(employeeId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public searchEmployees(key: string): void {
+    console.log(key);
+    const results: Employee[] = [];
+    // @ts-ignore
+    for (const employee of this.employees) {
+      if (employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1 || employee.email.toLowerCase().indexOf(key.toLowerCase()) !== -1 ||
+        employee.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1 || employee.jobTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(employee);
+      }
+    }
+    this.employees = results;
+    if (results.length === 0 || !key){
+      this.getEmployees();
+    }
   }
 }
