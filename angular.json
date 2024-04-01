@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "employeemanagerui"
+  "cli": {
+    "analytics": "54d54097-2418-4753-be2d-bd2b14dacfab"
+  }
 }
